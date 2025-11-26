@@ -33,7 +33,7 @@ fetcher, finder, db = init_components()
 st.sidebar.title("⚙️ Settings")
 sport = st.sidebar.selectbox(
     "Select Sport",
-    ["basketball_nba", "americanfootball_nfl", "baseball_mlb", "icehockey_nhl"]
+    ["basketball_nba", "basketball_ncaab", "americanfootball_nfl", "baseball_mlb", "icehockey_nhl"]
 )
 
 min_profit = st.sidebar.slider("Minimum Profit %", 0.0, 5.0, 0.5, 0.1)
