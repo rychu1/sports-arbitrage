@@ -1,0 +1,29 @@
+# Virtual environment
+venv/
+env/
+
+# API keys
+.env
+*.env
+
+# Python cache
+__pycache__/
+*.pyc
+*.pyo
+
+# Database files (optional - might want to commit)
+*.db
+data/
+
+# Jupyter
+.ipynb_checkpoints/
+
+# IDE
+.vscode/
+.idea/
+
+# OS
+.DS_Store
+
+# streamlit test
+.streamlit/secrets.toml

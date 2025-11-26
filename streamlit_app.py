@@ -3,10 +3,14 @@ import pandas as pd
 import plotly.express as px
 from datetime import datetime
 
+API_KEY = st.secrets["API_KEY"]
+
 # Clean imports (no sys.path hacks needed)
 from src.data_fetcher import OddsFetcher
 from src.arbitrage_finder import ArbitrageFinder
 from src.database import OddsDatabase
+
+fetcher = OddsFetcher(API_KEY)
 
 # Page config
 st.set_page_config(
@@ -121,7 +125,7 @@ if arb_opportunities:
                 annotation_text="Initial Investment",
                 annotation_position="right"
             )
-            st.plotly_chart(fig, use_container_width=True)
+            st.plotly_chart(fig, use_container_width=True, key=f"arb_chart_{i}")
 
 else:
     st.warning("No arbitrage opportunities found at current settings. Try lowering the minimum profit percentage.")
