@@ -1,11 +1,9 @@
 import streamlit as st
 import pandas as pd
 import plotly.express as px
-import plotly.graph_objects as go
-from datetime import datetime, timedelta
-import sys
-sys.path.append('..')
+from datetime import datetime
 
+# Clean imports (no sys.path hacks needed)
 from src.data_fetcher import OddsFetcher
 from src.arbitrage_finder import ArbitrageFinder
 from src.database import OddsDatabase
@@ -15,7 +13,7 @@ st.set_page_config(
     page_title="Sports Arbitrage Detector",
     page_icon="💰",
     layout="wide"
-)
+) 
 
 # Initialize
 @st.cache_resource
