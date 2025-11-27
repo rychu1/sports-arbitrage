@@ -10,6 +10,18 @@ st.set_page_config(
     layout="wide"
 ) 
 
+# This will automatically rerun the entire script
+REFRESH_INTERVAL = 2 * 60 * 60  # 2 hours in seconds
+
+# Display last update time
+if 'last_update' not in st.session_state:
+    st.session_state.last_update = datetime.now()
+
+# Check if it's time to refresh
+if (datetime.now() - st.session_state.last_update).seconds >= REFRESH_INTERVAL:
+    st.session_state.last_update = datetime.now()
+    st.rerun()
+
 # Clean imports (no sys.path hacks needed)
 from src.data_fetcher import OddsFetcher
 from src.arbitrage_finder import ArbitrageFinder
